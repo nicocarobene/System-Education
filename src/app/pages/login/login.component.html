@@ -1,0 +1,31 @@
+<section class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row mt20">
+            <div class="col-md-6 offset-md-3">
+                <mat-card>
+                    <picture class="container">
+                        <svg  class="icon icon-tabler icon-tabler-login" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path>
+                            <path d="M20 12h-13l3 -3m0 6l-3 -3"></path>
+                         </svg>
+                    </picture>
+                    <h1>Log In</h1>
+                    <form (ngSubmit)="onSubmit()" [formGroup]="form" class="form-container">
+                        <mat-form-field class="item username">
+                            <mat-label>Enter your username</mat-label>
+                                <input matInput placeholder="User" formControlName="username" required>
+                                <mat-error *ngIf="form.controls['username'].invalid">{{getErrorMessage(form)}}</mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="item password">
+                            <mat-label>Enter your password</mat-label>
+                                <input matInput type="password" placeholder="password" formControlName="password" required>
+                                <mat-error *ngIf="form.get('password')?.invalid">{{getErrorMessage(form)}}</mat-error>
+                        </mat-form-field>
+                        <button type="submit" mat-raised-button color="primary">LogIn</button>
+                    </form>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</section>

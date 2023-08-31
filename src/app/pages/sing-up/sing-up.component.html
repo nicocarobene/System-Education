@@ -1,0 +1,53 @@
+<section>
+     <div >
+        <div>
+            <div>
+                <picture>
+                    <svg width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+                        <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+                        <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855"></path>
+                     </svg>
+                </picture> 
+                <h1 >Sing in</h1>
+                <form (ngSubmit)="formSubmit()" class="form-container">
+                    <mat-form-field class="email">
+                        <mat-label>Enter your email</mat-label>
+                            <input [(ngModel)]="user.email" matInput placeholder="pat@example.com" [formControl]="email" required>
+                            <mat-error *ngIf="email.invalid">{{getErrorMessage(email)}}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="item phone">
+                        <mat-label>Enter your phone numberl</mat-label>
+                            <input type="number" [(ngModel)]="user.telefono" matInput placeholder="613" [formControl]="phone" required>
+                            <mat-error *ngIf="phone.invalid">{{getErrorMessage(phone)}}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="item username">
+                        <mat-label>Enter your username</mat-label>
+                            <input matInput  [(ngModel)]="user.username"placeholder="User" [formControl]="username" required>
+                            <mat-error *ngIf="username.invalid">{{getErrorMessage(username)}}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="item password">
+                        <mat-label>Enter your password</mat-label>
+                            <input matInput [(ngModel)]="user.password" type="password" placeholder="password" [formControl]="password" required>
+                            <mat-error *ngIf="password.invalid">{{getErrorMessage(password)}}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="item name">
+                        <mat-label>Enter your name</mat-label>
+                            <input matInput [(ngModel)]="user.name" placeholder="Nicolas" [formControl]="name" required>
+                            <mat-error *ngIf="name.invalid">{{getErrorMessage(name)}}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="item lastname">
+                        <mat-label>Enter your lastname</mat-label>
+                            <input matInput [(ngModel)]="user.lastname" placeholder="Lopez" [formControl]="lastname" required>
+                            <mat-error *ngIf="lastname.invalid">{{getErrorMessage(lastname)}}</mat-error>
+                    </mat-form-field>
+                    <div class="button-container">
+                        <button type="submit" mat-raised-button color="primary">Sing In</button>
+                        <button mat-raised-button color="accent">Clean Form</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+     </div>
+</section>
