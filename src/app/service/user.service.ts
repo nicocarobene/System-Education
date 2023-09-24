@@ -11,6 +11,6 @@ export class UserService {
   
   
   public addUser(user: any ){
-    return this.httpClient.post<User>(`${BASEURL}/api/v1/user`, user)
+    return this.httpClient.post<User>(`${BASEURL}/auth`, user)
   }
 }

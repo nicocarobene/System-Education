@@ -5,17 +5,38 @@
                 <a [routerLink]="'/'" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
                     <mat-icon>menu_books</mat-icon>
                 </a>
+            </li> 
+            <li *ngIf="!loginService.isLoggedIn()">
+                <a 
+                [routerLink]="'/login'" 
+                mat-icon-button class="example-icon favorite-icon" 
+                aria-label="Example icon-button with login icon">
+                    <mat-icon>input</mat-icon>
+                    <small>LogIn</small>
+                </a>
             </li>
-            <li>
-                <span>LogIn</span>
-                <span class="example-spacer"></span>
-                <a [routerLink]="'/login'" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with login icon"></a>
+            <li *ngIf="loginService.isLoggedIn()">
+                <a
+                (click)="LogOut()"
+                [routerLink]="'/login'" 
+                mat-icon-button class="example-icon favorite-icon" 
+                aria-label="Example icon-button with login icon">
+                    <mat-icon>exit_to_app</mat-icon>
+                    <small>LogOut</small>  
+                </a>
             </li>
-            <li>
-                <span>SingIn</span>
-                <span class="example-spacer"></span>
-                <a [routerLink]="'/singup'" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with login icon"></a>
+            <li *ngIf="!loginService.isLoggedIn()">
+                <a [routerLink]="'/singup'" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with login icon">
+                    <small>SingIn</small>
+                    <mat-icon>assignment_turned_in</mat-icon>
+                </a>
             </li>
         </ul>
+        <button 
+        mat-button
+        *ngIf="loginService.isLoggedIn()" 
+        routerLink="admin/profile">
+            {{username}} 
+        </button>
     </mat-toolbar>
 </header>

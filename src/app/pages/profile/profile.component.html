@@ -1,0 +1,43 @@
+<mat-card>
+    <h1>Details of Profile</h1>
+    <mat-card-content>
+        <div class="bootstap-wrapper">
+            <div class="container">
+                <div class="text-center">
+                    <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg" alt="profile image"
+                    class="profile-image">
+                    <h1 class="mt20">{{user.username}}</h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                        <table class="table text-center">
+                            <thead>
+                                <tr>
+                                    <th>name of user</th>
+                                    <th>Id</th>
+                                    <th>celphone</th>
+                                    <th>ROLE</th>
+                                    <th>state</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{user.name + " " + user.lastname}}</td>
+                                    <td>{{user.id}}</td>
+                                    <td>{{user.telefono}}</td>
+                                    <td>{{user.authorities[0].authority}}</td>
+                                    <td>{{user.enabled ? 'Active' : 'Desactive' }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <mat-card-actions class="container text-center mt20 w100" >
+            <button mat-raised-button color="primary">Update</button>
+            <button mat-raised-button color="accent">Share</button>
+        </mat-card-actions>
+    </mat-card-content>
+</mat-card>

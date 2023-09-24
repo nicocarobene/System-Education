@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-
+ 
 }

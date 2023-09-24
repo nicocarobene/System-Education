@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/service/login.service';
 import { UserLogin } from 'src/app/utils/types';
 
@@ -10,7 +11,7 @@ import { UserLogin } from 'src/app/utils/types';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  constructor( private snack: MatSnackBar, private loginService: LoginService){}
+  constructor( private snack: MatSnackBar, private loginService: LoginService, private route: Router){}
   form = new FormGroup({
     username: new FormControl("", Validators.minLength(2),),
     password: new FormControl("", Validators.minLength(2)),
@@ -49,10 +50,20 @@ export class LoginComponent {
           this.loginService.loginUser(response.accessToken)
           this.loginService.getCurrentUser().subscribe((user:any)=>{
             console.log(user)
-          })
+            if(user.authorities[0].authority === 'ADMIN'){
+              this.loginService.setUser(user.authorities[0].authority)
+              this.loginService.loginStatusSubject.next(true)
+              return this.route.navigate(["/admin"]);
+            }else if(user.authorities[0].authority === 'USER'){
+              this.loginService.setUser(user.authorities[0].authority)
+              this.loginService.loginStatusSubject.next(true)
+              return this.route.navigate(["/user"]);
+            }
+            return this.loginService.logoutUser()
+          }
+          )
         },
         (error) => {
-          // Manejar el error, por ejemplo, mostrar un mensaje de error
           console.error('Error generating token:', error);
           this.snack.open('Error generating token', 'OK', {
             duration: 3000,

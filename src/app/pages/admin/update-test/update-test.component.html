@@ -1,0 +1,65 @@
+<mat-card>
+    <h1 >Update Test</h1>
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <form *ngIf="test && test.id>0" #myForm="ngForm" (ngSubmit)="handleSubmit(myForm)">
+                <mat-form-field class="w100" appearance="fill">
+                    <mat-label>Title</mat-label>
+                    <input type="text"
+                    [(ngModel)]="test.title"
+                    name="title"
+                    placeholder="Put title of your test"
+                    matInput>
+                </mat-form-field>
+                <mat-form-field class="w100" appearance="fill">
+                    <mat-label>Desciption</mat-label>
+                    <textarea type="text"
+                    [(ngModel)]="test.description"
+                    name="description" 
+                    placeholder="Put description of your test"
+                    rows="10"
+                    matInput>
+                </textarea>
+                </mat-form-field>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="w100" appearance="fill">
+                        <mat-label>Note Max</mat-label>
+                        <input 
+                        [(ngModel)]="test.maxNote"
+                        name="maxNote"
+                        type="number"
+                        matInput>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field class="w100" appearance="fill">
+                        <mat-label>Max quiz number</mat-label>
+                        <input
+                        [(ngModel)]="test.maxNumOfQuiz"
+                        name="maxNumOfQuiz"
+                        type="number"
+                        matInput>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <mat-slide-toggle class="mt20" [(ngModel)]="test.active" name="active" color="primary">
+                    State of Test
+                </mat-slide-toggle>
+                <mat-form-field>
+                    <mat-label>Category</mat-label>
+                    <mat-select name="category" [(ngModel)]="test.category.id">
+                        <mat-option *ngFor="let c of categories" [value]="c.id">{{c.title}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                
+
+                <div class="container text-center">
+                    <button class="button" type="submit" mat-raised-button color="primary">Update Test</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</mat-card>
+
+{{test | json}}

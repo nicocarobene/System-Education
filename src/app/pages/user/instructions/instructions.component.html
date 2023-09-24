@@ -1,0 +1,46 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row">
+            <div *ngIf="test" class="col-md-12">
+                <mat-card class="mt20">
+                    <mat-card-header>
+                        <mat-card-title>
+                            Read Instruction after Start Test please!
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-subtitle>
+                        One stem more for going to
+                    </mat-card-subtitle>
+                    <mat-card-content>
+                        <h1>{{test.title}}</h1>
+                        <p>{{test.description}}</p>
+                        <mat-divider></mat-divider>
+                    </mat-card-content>
+                    <h2 class="ml20">
+                        This is the most important instructions before start:
+                    </h2>
+                    <ul>
+                        <li>This test only practice test</li>
+                        <li>Finish test and send it in {{test.maxNumOfQuiz*2}} mints.</li>
+                        <li>You must triyings more step</li>
+                        <li>Max Note for Quiz: {{test.maxNote/test.maxNumOfQuiz}} points</li>
+                    </ul>
+                    <mat-divider></mat-divider>
+                    <h3 class="ml20">To start the exam:</h3>
+                    <ul>
+                        <li>Press button <b>Start</b></li>
+                        <li>Timer start after click in button</li>
+                        <li>You cannot restart the questionnaire once it has started</li>
+                        <li>When finished press the send button</li>
+                        <li>At the end of the exam, a pdf will be generated with the shipping report</li>
+                    </ul>
+                </mat-card>
+                <mat-card>
+                    <mat-card-actions>
+                        <button mat-raised-button (click)="handleClick()" color="primary">Start Test</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

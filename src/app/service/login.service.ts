@@ -1,16 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UserLogin } from '../utils/types';
+import { UserElement, UserLogin } from '../utils/types';
 import { BASEURL } from './helper';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
+  public loginStatusSubject = new Subject<boolean>();
 
   constructor(private http: HttpClient) { }
   public generateToken(user: UserLogin) {
-    return this.http.post<any>(`${BASEURL}/api/v1/auth/login`, user);
+    return this.http.post<any>(`${BASEURL}/auth/login`, user);
   }
 
   public loginUser(token: string) {
@@ -25,6 +27,7 @@ export class LoginService {
 
   public logoutUser(){
     localStorage.removeItem('jwtToken');
+    localStorage.removeItem('user');
   }
 
   public getToken(){
@@ -41,14 +44,15 @@ export class LoginService {
   }
   public getUserRole(){
     const user = this.getUser();
-    return user.authorities[0].authority;
+    return user;
   } 
   public getCurrentUser(){
-    console.log(this.getToken())
-    return this.http.get(`${BASEURL}/api/v1/auth/current-user`,{
+    const user= this.http.get<UserElement>(`${BASEURL}/auth/current-user`,{
       headers: {
         'Authorization': `Bearer ${this.getToken()}`
       }
     });
+    return user;
   }
+
 }

@@ -20,6 +20,26 @@ import {MatIconModule} from '@angular/material/icon';
 import { authInterceptorProviders } from './service/interceptor.service';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { DashboardUserComponent } from './pages/user/dashboard-user/dashboard-user.component';
+import {MatListModule} from '@angular/material/list';
+import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
+import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ViewCategoryComponent } from './pages/admin/view-category/view-category.component';
+import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
+import { ViewTestComponent } from './pages/admin/view-test/view-test.component';
+import { AddExamComponent } from './pages/admin/add-exam/add-exam.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSelectModule} from '@angular/material/select';
+import { UpdateTestComponent } from './pages/admin/update-test/update-test.component';
+import { ViewQuizbytestComponent } from './pages/admin/view-quizbytest/view-quizbytest.component';
+import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
+import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
+import { SidebarComponentUser } from './pages/user/sidebar/sidebar.component';
+import { LoadTestComponent } from './pages/user/load-test/load-test.component';
+import { InstructionsComponent } from './pages/user/instructions/instructions.component';
+import { StartTestComponent } from './pages/user/start-test/start-test.component';
+import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 
 @NgModule({
@@ -30,7 +50,22 @@ import { DashboardUserComponent } from './pages/user/dashboard-user/dashboard-us
     LoginComponent,
     HomeComponent,
     DashboardComponent,
-    DashboardUserComponent
+    DashboardUserComponent,
+    SidebarComponent,
+    WelcomeComponent,
+    ProfileComponent,
+    ViewCategoryComponent,
+    AddCategoryComponent,
+    ViewTestComponent,
+    AddExamComponent,
+    UpdateTestComponent,
+    ViewQuizbytestComponent,
+    AddQuizComponent,
+    UpdateQuizComponent,
+    SidebarComponentUser,
+    LoadTestComponent,
+    InstructionsComponent,
+    StartTestComponent
   ],
   imports: [
     AppRoutingModule,
@@ -45,7 +80,11 @@ import { DashboardUserComponent } from './pages/user/dashboard-user/dashboard-us
     MatSnackBarModule,
     MatCardModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatListModule,
+    MatSlideToggleModule,
+    MatSelectModule,
+    MatProgressSpinnerModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent],

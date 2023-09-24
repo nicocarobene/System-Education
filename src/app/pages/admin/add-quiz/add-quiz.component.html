@@ -1,0 +1,60 @@
+<div class="bootstap-wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="mt10">Add Quiz at {{ title }}</h1>
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-subtitle>
+                        Insert de new Quiz
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content class="mt10">
+                    <form class="mt-20" #MyForm="ngForm" (ngSubmit)="handleSubmit(MyForm)">
+                        <mat-form-field class="w100">
+                            <mat-label>Insert Quiz</mat-label>
+                            <textarea name="content" rows="10" matInput [(ngModel)]="newQuiz.content" ></textarea>
+                        </mat-form-field>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field class="w100">
+                                    <mat-label>Insert Option 1</mat-label>
+                                    <input type="text" matInput name="option1" [(ngModel)]="newQuiz.option1">
+                                </mat-form-field>
+                                <mat-form-field class="w100">
+                                    <mat-label>Insert Option 2</mat-label>
+                                    <input type="text" matInput name="option2" [(ngModel)]="newQuiz.option2">
+                                </mat-form-field>
+                            </div>
+                                <div class="col-md-6">
+
+                                    <mat-form-field class="w100">
+                                        <mat-label>Insert Option 3</mat-label>
+                                        <input type="text" matInput name="option3" [(ngModel)]="newQuiz.option3">
+                                    </mat-form-field>
+                                    <mat-form-field class="w100">
+                                        <mat-label>Insert Option 4</mat-label>
+                                        <input type="text" matInput name="option4" [(ngModel)]="newQuiz.option4">
+                                    </mat-form-field>
+                            </div>
+                        </div>
+                        <mat-form-field class="w100">
+                            <mat-label>Select the correct Answer</mat-label>
+                            <mat-select [(ngModel)]="newQuiz.correctAnswer" name="correctAnswer">
+                                <mat-option *ngIf="newQuiz.option1" [value]="newQuiz.option1">{{newQuiz.option1}}</mat-option>
+                                <mat-option *ngIf="newQuiz.option2" [value]="newQuiz.option2">{{newQuiz.option2}}</mat-option>
+                                <mat-option *ngIf="newQuiz.option3" [value]="newQuiz.option3">{{newQuiz.option3}}</mat-option>
+                                <mat-option *ngIf="newQuiz.option4" [value]="newQuiz.option4">{{newQuiz.option4}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <div class="container text-center">
+                            <button mat-raised-button color="primary">Save</button>
+                        </div>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
+{{quiz | json}}

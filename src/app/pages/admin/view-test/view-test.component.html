@@ -1,0 +1,26 @@
+<ng-container *ngIf="tests && tests.length>0">
+    <mat-card class=".mt10" *ngFor="let e of tests">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>
+                {{e.title}}
+            </mat-card-title>
+            <mat-card-subtitle>
+                {{e.category.title}}
+            </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <button mat-flat-button color="primary" [routerLink]="'/admin/viewQuizTest/'+e.id">Answer</button>
+            <button mat-stroked-button color="primary" class="ml20">Maximum points {{e.maxNote}} </button>
+            <button mat-stroked-button color="primary" class="ml20">Maximum Quiz {{e.maxNumOfQuiz}} </button>
+            <button mat-flat-button color="primary" class="ml20">Refresh</button>
+            <button mat-flat-button color="primary" class="ml20">Attempt</button>
+            <button mat-flat-button class="ml20" [routerLink]="'/admin/updateTest/'+e.id" color="primary">Update</button>
+            <button mat-flat-button color="warn" class="ml10" (click)="deleteTest(e.id)">Delete</button>
+        </mat-card-content>
+    </mat-card>
+</ng-container>
+    
+<div class="container text-center mt20">
+    <button mat-raised-button routerLink="/admin/addTest" color="primary">Add Test</button>
+</div>

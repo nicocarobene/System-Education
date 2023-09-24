@@ -1,0 +1,27 @@
+
+.profile-image{
+    max-width: 150px;
+    max-height: 150px;
+    border: 1px solid gainsboro;
+    border-radius: 10%;
+}
+
+.table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.table{
+    thead{
+        background-color: beige;
+        tr th{
+            padding: 15px 10px;
+            border:0.5px solid gainsboro;
+        }
+    }
+    tr td{
+        background: #fff;
+        padding: 15px 10px;
+        border:0.5px solid gainsboro;
+    }
+
+}
